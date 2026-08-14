@@ -140,3 +140,9 @@ Each stage is importable on its own, so a single step can be run in isolation
 
 All stochastic steps derive their seed from `PipelineConfig.root_seed`
 (default 42). A fixed root seed reproduces the whole synthesis exactly.
+
+## License
+
+Code released under the [MIT License](LICENSE). This covers the code only:
+the INSEE input files are not redistributed here and remain subject to their
+own conditions of use.

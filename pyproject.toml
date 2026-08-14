@@ -5,9 +5,11 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "synthcensus"
 version = "0.1.0"
-description = "Synthetic individual census with residence IRIS and work/study commune assignment from INSEE 2007 detail files"
+description = "Synthetic individual census with residence IRIS and work/study commune assignment from INSEE census detail files"
 readme = "README.md"
 requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [{ name = "Youssef El Yaakoubi" }]
 dependencies = [
     "polars>=1.0",
