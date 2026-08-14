@@ -1,0 +1,37 @@
+# Raw INSEE inputs and generated outputs -- never committed.
+# The census / MOBPRO / MOBSCO detail files and the BTX_IC_FAM margins carry
+# redistribution restrictions, and the synthetic census is derived from them.
+# The data/ tree is kept in the repository as an *empty* expected layout:
+# only the .gitkeep markers are tracked.
+/data/**
+!/data/**/
+!/data/**/.gitkeep
+/output/
+
+# Data formats, wherever they end up
+*.parquet
+*.xls
+*.xlsx
+*.csv
+*.csv.gz
+*.zip
+*.7z
+
+# Notebooks -- cell outputs embed data snippets from restricted-license
+# sources. Strip outputs before adding one back.
+*.ipynb
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.ipynb_checkpoints/
+.venv/
+venv/
+*_env/
+
+# OS / editor
+.DS_Store
+.Rhistory
+.idea/
+.vscode/

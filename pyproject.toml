@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "synthcensus"
+version = "0.1.0"
+description = "Synthetic individual census with residence IRIS and work/study commune assignment from INSEE 2007 detail files"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Youssef El Yaakoubi" }]
+dependencies = [
+    "polars>=1.0",
+    "numpy>=1.24",
+    "fastexcel>=0.10",  # backend used by polars.read_excel for the .xls margins
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["synthcensus*"]
