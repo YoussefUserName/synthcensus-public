@@ -70,7 +70,7 @@ from synthcensus import build_synthetic_census, PipelineConfig
 import polars as pl
 
 year = 2014
-cfg = PipelineConfig(year=year, regions=["44"])
+cfg = PipelineConfig(year=year, regions=["44"]) # Grand-Est 
 # cfg = PipelineConfig(year=year, depts=["67", "57"])
 
 year_dir = ROOT / "data" / str(year)
@@ -80,7 +80,7 @@ synthetic = build_synthetic_census(census=year_dir / "census_individuals",
                                    family_margins=year_dir / "couples-familles-menages",
                                    iris
 
-synthetic.write_parquet("synthetic_census_2008.parquet")
+synthetic.write_parquet("synthetic_census_2014.parquet")
 ```
 
 With the `data/` layout above, [`run.py`](run.py) does exactly this:
