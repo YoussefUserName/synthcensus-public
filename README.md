@@ -62,6 +62,8 @@ The **year is mandatory**; the perimeter is optional.
 ```python
 from synthcensus import build_synthetic_census, PipelineConfig
 
+cfg = PipelineConfig(year=2008, regions=["53"], depts=["67"])
+
 # Whole of metropolitan France, 2008:
 synthetic = build_synthetic_census(
     census="RP_2008.parquet",
@@ -69,7 +71,7 @@ synthetic = build_synthetic_census(
     mobsco="FD_MOBSCO_2008.parquet",
     family_margins="BTX_IC_FAM_2008.xls",
     iris_cantons="iris_canton_france_2008.parquet",
-    config=PipelineConfig(year=2008),
+    config=PipelineConfig(cfg),
 )
 
 synthetic.write_parquet("synthetic_census_2008.parquet")
@@ -81,8 +83,7 @@ With the `data/` layout above, [`run.py`](run.py) does exactly this:
 python run.py 2021 67 57     # year 2021, departments 67 and 57
 ```
 
-and writes the result to `output/`. [`bash_hpc.sh`](bash_hpc.sh) is the
-matching Slurm batch script.
+and writes the result to `output/`. 
 
 ### Geographic perimeter (region and/or department, **union**)
 
