@@ -60,19 +60,25 @@ The `data/geo/` tables are rebuilt from two INSEE reference files with
 The **year is mandatory**; the perimeter is optional.
 
 ```python
+import sys
+from pathlib import Path
+
+ROOT = Path("/Users/youssefelyaakoubi/Documents/URBAN_SIM/SIMULATOR/synthcensus")
+sys.path.insert(0, str(ROOT))
+
 from synthcensus import build_synthetic_census, PipelineConfig
+import polars as pl
 
-cfg = PipelineConfig(year=2008, regions=["53"], depts=["67"])
+year = 2014
+cfg = PipelineConfig(year=year, regions=["44"])
+# cfg = PipelineConfig(year=year, depts=["67", "57"])
 
-# Whole of metropolitan France, 2008:
-synthetic = build_synthetic_census(
-    census="RP_2008.parquet",
-    mobpro="FD_MOBPRO_2008.parquet",
-    mobsco="FD_MOBSCO_2008.parquet",
-    family_margins="BTX_IC_FAM_2008.xls",
-    iris_cantons="iris_canton_france_2008.parquet",
-    config=PipelineConfig(cfg),
-)
+year_dir = ROOT / "data" / str(year)
+synthetic = build_synthetic_census(census=year_dir / "census_individuals",
+                                   mobpro=year_dir / "census_mobpro",
+                                   mobsco=year_dir / "census_mobsco",
+                                   family_margins=year_dir / "couples-familles-menages",
+                                   iris
 
 synthetic.write_parquet("synthetic_census_2008.parquet")
 ```
