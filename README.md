@@ -63,7 +63,7 @@ The **year is mandatory**; the perimeter is optional.
 import sys
 from pathlib import Path
 
-ROOT = Path("/Users/youssefelyaakoubi/Documents/URBAN_SIM/SIMULATOR/synthcensus")
+ROOT = Path("/your_path/synthcensus")
 sys.path.insert(0, str(ROOT))
 
 from synthcensus import build_synthetic_census, PipelineConfig
